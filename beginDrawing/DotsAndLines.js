@@ -29,9 +29,10 @@
 //
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
+  'attribute vec4 a_Color;\n' +
   'void main() {\n' +
   '  gl_Position = a_Position;\n' +
-  '  gl_PointSize = 10.0;\n' +
+  '  gl_PointSize = 20.0;\n' +
   '}\n';
 
 // Fragment shader program
@@ -98,12 +99,13 @@ function initVertexBuffers(gl) {
      0.0,  0.5, 0.0, 1.0,	// CAREFUL! I made these into 4D points/ vertices: x,y,z,w.
     -0.2,  0.0, 0.0, 1.0,	// new point!  (? What happens if I make w=0 instead of 1.0?)
     -0.5, -0.5, 0.0, 1.0,   
+    -0.1, 0.4, 0.0, 1.0,  //my point!
      0.0, -0.2, 0.0, 1.0, 	// new point!
      0.5, -0.5, 0.0, 1.0,	// 
      0.2,  0.0, 0.0, 1.0, 	// new point!  (note we need a trailing comma here)
      
   ]);
-  var n = 6; // The number of vertices
+  var n = 7; // The number of vertices
 
   // Then in the Graphics hardware, create a vertex buffer object (VBO)
   var vertexBuffer = gl.createBuffer();	// get it's 'handle'
